@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\KategoriController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,3 +32,9 @@ Route::get('/master-items/delete/{id}', [App\Http\Controllers\MasterItemsControl
 
 
 Route::get('/master-items/update-random-data', [App\Http\Controllers\MasterItemsController::class, 'updateRandomData']);
+Route::get('kategori-items', [KategoriController::class, 'index']);
+Route::get('/kategori-items/search', [KategoriController::class, 'search']);
+Route::get('/kategori-items/form/{method}/{id?}', [KategoriController::class, 'formView']);
+Route::post('/kategori-items/form/{method}/{id?}', [KategoriController::class, 'formSubmit']);
+Route::get('/kategori-items/view/{id}', [KategoriController::class, 'singleView']);
+Route::get('/kategori-items/delete/{id}', [KategoriController::class, 'delete']);
